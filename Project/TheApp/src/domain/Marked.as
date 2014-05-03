@@ -2,7 +2,7 @@
  * Created by asgerlaursen on 03/05/14.
  */
 package domain {
-import basket.Basket;
+import domain.basket.Basket;
 
 public class Marked {
     public function Marked() {

@@ -2,6 +2,8 @@
  * Created by asgerlaursen on 03/05/14.
  */
 package {
+import dk.webyte.util.TestUtil;
+
 import domain.basket.Basket;
 import events.GameEvent;
 import flash.events.EventDispatcher;
@@ -56,8 +58,6 @@ public class Game extends EventDispatcher{
     // Products
     public var products:ProductCatalog;
 
-
-
     //Point of sale system:
     private var _pos:POS;
 
@@ -68,7 +68,6 @@ public class Game extends EventDispatcher{
         {
             throw new Error("You should never call new on this class")
         }
-
         products = new ProductCatalog();
 
     }
