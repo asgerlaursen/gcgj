@@ -12,7 +12,9 @@ public class ShoppingListItem {
     public var requeiredAmounts:int;
     public var label:String;
 
-    public function ShoppingListItem() {
+    public function ShoppingListItem(_alias:String, _amount:int) {
+        groupAlias = _alias;
+        requeiredAmounts = _amount;
         createLabel();
     }
 
@@ -39,6 +41,7 @@ public class ShoppingListItem {
         else if(groupAlias == "lettuce") {
             label = requeiredAmounts.toString() + " " + prod.quantifier + " salat";
         }
+
     }
 }
 }
