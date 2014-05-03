@@ -3,6 +3,8 @@
  */
 package {
 import domain.basket.Basket;
+import events.GameEvent;
+import flash.events.EventDispatcher;
 import domain.products.ProductCatalog;
 import flash.geom.Point;
 import domain.Health;
@@ -12,7 +14,7 @@ import domain.shopping.ShoppingList;
 import domain.Wallet;
 import domain.World;
 
-public class Game {
+public class Game extends EventDispatcher{
 
     /*
     STATIC
@@ -98,7 +100,7 @@ public class Game {
         _pos.calculateHealth(healt,basket);
         _pos.calculateMarked(markedPlace,basket);
         _pos.calculateEnvironment(environment,basket);
-
+        dispatchEvent(new GameEvent(GameEvent.EVENT_CHECKOUT_COMPLETE));
 
         //Do we have funding=
         //if not - stop here and tell the world
