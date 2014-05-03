@@ -16,15 +16,16 @@ public class POS {
     }
 
     public function calculateHealth(healt:Health, basket:Basket):void {
-        var totalHealth;
+        var totalHealth = basket.totalHealth;
+        healt.ajust(totalHealth);
     }
 
     public function calculateMarked(markedPlace:Marked, basket:Basket):void {
-
+        markedPlace.calculateSupplyAndDemand(basket);
     }
 
     public function calculateEnvironment(environment:World, basket:Basket):void {
-
+            environment.calculateFootprint(basket);
     }
 }
 }
