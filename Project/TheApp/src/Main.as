@@ -9,6 +9,7 @@ import flash.events.MouseEvent;
 
 import ui.GameUI;
 
+[SWF (width=1024, height=768)]
 public class Main extends Sprite {
 
     private var game:Game;

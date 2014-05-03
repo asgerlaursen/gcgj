@@ -4,7 +4,7 @@
 package ui {
 import dk.webyte.util.TestUtil;
 
-import domain.shopping.ShoppingListItem;
+import domain.shopping.ShoppingListItemImpl;
 
 import events.GameEvent;
 
@@ -12,6 +12,8 @@ import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.utils.Dictionary;
+
+import ui.mediators.ShoppingListItemMediator;
 
 public class GameUI extends Sprite {
 
@@ -53,10 +55,10 @@ public class GameUI extends Sprite {
     private function setupUI():void {
         //_init = new Sprite();
         //_intro = new Sprite();
-        _chrome = new Sprite();
-        _chrome.addChild(TestUtil.createButton("Jeg er chrome"));
+        _chrome = new Chrome();
         _scene = new Sprite();
         addChild(_scene);
+        addChild(_chrome);
         dummyList();
 
 
@@ -69,12 +71,12 @@ public class GameUI extends Sprite {
     private function dummyList():void {
         var y:int = 0;
         var currentList:Array = _game.currentShoppingList.Items;
-        for each(var i:ShoppingListItem in currentList)
+        var sl:ShoppingList = _chrome.getChildByName("_orderList") as ShoppingList;
+        for each(var i:ShoppingListItemImpl in currentList)
         {
-            var b:Sprite = TestUtil.createButton(i.groupAlias);
-            b.addEventListener(MouseEvent.CLICK, handleItemClick);
-            b.y = y+=b.height;
-            _scene.addChild(b);
+            var si:ShoppingListItem = sl.addItem(i.groupAlias) as ShoppingListItem;
+            si.addEventListener(MouseEvent.CLICK, handleItemClick)
+            new ShoppingListItemMediator(si);
         }
     }
 

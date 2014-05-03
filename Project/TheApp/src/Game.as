@@ -12,7 +12,7 @@ import flash.geom.Point;
 import domain.Health;
 import domain.Marked;
 import domain.POS;
-import domain.shopping.ShoppingList;
+import domain.shopping.ShoppingListImpl;
 import domain.Wallet;
 import domain.World;
 
@@ -45,7 +45,7 @@ public class Game extends EventDispatcher{
     /*
     MEMBERS
      */
-    public var currentShoppingList:ShoppingList;
+    public var currentShoppingList:ShoppingListImpl;
     public var basket:Basket;
     private var _currentState:String;
     public var currentScene:String;
@@ -92,7 +92,7 @@ public class Game extends EventDispatcher{
         products = new ProductCatalog();
 
         // Init first level
-        currentShoppingList = new ShoppingList(currentLevel);
+        currentShoppingList = new ShoppingListImpl(currentLevel);
 
 
     }
