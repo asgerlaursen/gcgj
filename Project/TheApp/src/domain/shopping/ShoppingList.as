@@ -5,10 +5,23 @@ package domain.shopping {
 public class ShoppingList {
 
     public var Items:Array = [];
+    private var groupAliasArr = [
+        "milk",      // 0
+        "egg",       // 1
+        "butter",    // 2
+        "coffee",    // 3
+        "chocolate", // 4
+        "banana",    // 5
+        "lettuce"    // 6
+    ];
+
 
     public function ShoppingList(level:int) {
         if(level == 1) {
-
+            addItem(groupAliasArr[0], 2);
+            addItem(groupAliasArr[3], 400);
+            addItem(groupAliasArr[5], 3);
+            addItem(groupAliasArr[1], 10);
         }
     }
 
