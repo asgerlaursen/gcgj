@@ -1,7 +1,7 @@
 /**
  * Created by Peter on 03/05/14.
  */
-package shopping {
+package domain.shopping {
 public class ShoppingListItem {
     public var GroupAlias:String;
     public var ItemInBasket:Boolean = false;

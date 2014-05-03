@@ -1,7 +1,7 @@
 /**
  * Created by asgerlaursen on 03/05/14.
  */
-package basket {
+package domain.basket {
 public class BasketItem {
 
     public var id:String;

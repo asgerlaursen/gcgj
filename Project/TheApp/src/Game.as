@@ -2,21 +2,14 @@
  * Created by asgerlaursen on 03/05/14.
  */
 package {
-import basket.Basket;
-
+import domain.basket.Basket;
+import domain.products.ProductCatalog;
 import flash.geom.Point;
-
 import domain.Health;
-
 import domain.Marked;
-
 import domain.POS;
-
-import shopping.ShoppingList;
-
+import domain.shopping.ShoppingList;
 import domain.Wallet;
-
-
 import domain.World;
 
 public class Game {
@@ -58,6 +51,11 @@ public class Game {
     public var markedPlace:Marked;
 
 
+    // Products
+    public var products:ProductCatalog;
+
+
+
     //Point of sale system:
     private var _pos:POS;
 
@@ -68,9 +66,12 @@ public class Game {
         {
             throw new Error("You should never call new on this class")
         }
+
+        products = new ProductCatalog();
+
     }
 
-    public static  function getInstance():Game
+    public static function getInstance():Game
     {
         if(_instance == null)
         {
