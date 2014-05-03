@@ -55,6 +55,8 @@ public class GameUI extends Sprite {
         //_intro = new Sprite();
         _chrome = new Sprite();
         _chrome.addChild(TestUtil.createButton("Jeg er chrome"));
+        _scene = new Sprite();
+        addChild(_scene);
         dummyList();
 
 
@@ -65,11 +67,11 @@ public class GameUI extends Sprite {
     }
 
     private function dummyList():void {
-        var y:in = 0;
+        var y:int = 0;
         var currentList:Array = _game.currentShoppingList.Items;
         for each(var i:ShoppingListItem in currentList)
         {
-            var b:Sprite = TestUtil.createButton(i.GroupAlias);
+            var b:Sprite = TestUtil.createButton(i.groupAlias);
             b.addEventListener(MouseEvent.CLICK, handleItemClick);
             b.y = y+=b.height;
             _scene.addChild(b);
