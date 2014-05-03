@@ -2,6 +2,8 @@
  * Created by asgerlaursen on 03/05/14.
  */
 package {
+import dk.webyte.util.TestUtil;
+
 import domain.basket.Basket;
 import events.GameEvent;
 import flash.events.EventDispatcher;
@@ -70,13 +72,17 @@ public class Game extends EventDispatcher{
         {
             throw new Error("You should never call new on this class")
         }
+        currentState = STATE_INIT;
+
         // Init Product Catalog
         products = new ProductCatalog();
 
-        // Init first level
 
+        // Init first level
         currentShoppingList = new ShoppingList(currentLevel);
+
     }
+
 
 
 
