@@ -145,5 +145,10 @@ public class Game extends EventDispatcher{
 
 
     }
+
+    public function changeScene(sceneID:String):void {
+        currentScene = sceneID;
+        dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_SCENE_CHANGE));
+    }
 }
 }

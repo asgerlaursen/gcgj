@@ -35,7 +35,9 @@ public class GameUI extends Sprite {
         addEventListener(Event.ADDED_TO_STAGE, handleAddedToStage)
         _game = Game.getInstance();
         _game.addEventListener(GameEvent.EVENT_GAME_STATE_CHANGE, gameStateChangeHandler);
+        _game.addEventListener(GameEvent.EVENT_GAME_SCENE_CHANGE,gameSceneChangeHandler)
     }
+
 
     private function handleAddedToStage(event:Event):void {
         setupUI();
@@ -44,6 +46,10 @@ public class GameUI extends Sprite {
 
     private function gameStateChangeHandler(event:GameEvent):void {
         updateUIFromGameState();
+    }
+
+    private function gameSceneChangeHandler(event:GameEvent):void {
+        //TODO handle scene change
     }
 
     private function updateUIFromGameState():void {
@@ -75,13 +81,8 @@ public class GameUI extends Sprite {
         for each(var i:ShoppingListItemImpl in currentList)
         {
             var si:ShoppingListItem = sl.addItem(i.groupAlias) as ShoppingListItem;
-            si.addEventListener(MouseEvent.CLICK, handleItemClick)
-            new ShoppingListItemMediator(si);
+            new ShoppingListItemMediator(si,i);
         }
-    }
-
-    private function handleItemClick(event:MouseEvent):void {
-        trace("Item Click");
     }
 
 

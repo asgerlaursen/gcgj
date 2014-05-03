@@ -14,6 +14,7 @@ public class GameEvent extends Event {
     public static const EVENT_CHECKOUT_COMPLETE:String = "checkoutComplete";
     public static const EVENT_GAME_STATE_CHANGE:String ="gameStateChange";
     public static const EVENT_NOT_SUFFICIENT_FUNDS:String = "notSufficinetFunds";
+    public static const EVENT_GAME_SCENE_CHANGE:String = "gameSceneChange";
 
     public function GameEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false) {
         super(type, bubbles, cancelable);
