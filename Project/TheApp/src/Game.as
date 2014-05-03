@@ -101,7 +101,7 @@ public class Game extends EventDispatcher{
         _pos.calculateHealth(healt,basket);
         _pos.calculateMarked(markedPlace,basket);
         _pos.calculateEnvironment(environment,basket);
-        dispatchEvent(new GameEvent)
+        dispatchEvent(new GameEvent(GameEvent.EVENT_CHECKOUT_COMPLETE));
 
         //Do we have funding=
         //if not - stop here and tell the world
