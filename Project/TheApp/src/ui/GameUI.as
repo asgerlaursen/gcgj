@@ -4,10 +4,13 @@
 package ui {
 import dk.webyte.util.TestUtil;
 
+import domain.shopping.ShoppingListItem;
+
 import events.GameEvent;
 
 import flash.display.Sprite;
 import flash.events.Event;
+import flash.events.MouseEvent;
 import flash.utils.Dictionary;
 
 public class GameUI extends Sprite {
@@ -52,7 +55,29 @@ public class GameUI extends Sprite {
         //_intro = new Sprite();
         _chrome = new Sprite();
         _chrome.addChild(TestUtil.createButton("Jeg er chrome"));
+        dummyList();
+
+
+
+
+
         _scene = new Sprite();
+    }
+
+    private function dummyList():void {
+        var y:in = 0;
+        var currentList:Array = _game.currentShoppingList.Items;
+        for each(var i:ShoppingListItem in currentList)
+        {
+            var b:Sprite = TestUtil.createButton(i.GroupAlias);
+            b.addEventListener(MouseEvent.CLICK, handleItemClick);
+            b.y = y+=b.height;
+            _scene.addChild(b);
+        }
+    }
+
+    private function handleItemClick(event:MouseEvent):void {
+        trace("Item Click");
     }
 
 
