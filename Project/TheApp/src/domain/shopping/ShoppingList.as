@@ -28,9 +28,9 @@ public class ShoppingList {
     private function addItem(groupAlias:String, amount:int):void {
         var found:Boolean = false;
         for(var i:int = 0; i < Items.length; i++) {
-            if(Items[i].GroupAlias == groupAlias) {
+            if(Items[i].groupAlias == groupAlias) {
                 found = true;
-                Items[i].RequeiredAmounts += amount;
+                Items[i].requeiredAmounts += amount;
             }
         }
         if(!found) {

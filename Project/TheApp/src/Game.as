@@ -81,6 +81,11 @@ public class Game extends EventDispatcher{
             throw new Error("You should never call new on this class")
         }
 
+
+    }
+
+    private function init():void {
+
         currentState = STATE_LIST;
 
         // Init Product Catalog
@@ -90,10 +95,7 @@ public class Game extends EventDispatcher{
         currentShoppingList = new ShoppingList(currentLevel);
 
 
-
     }
-
-
 
 
     public static function getInstance():Game
@@ -103,9 +105,12 @@ public class Game extends EventDispatcher{
             _isSingleton = true;
             _instance = new Game();
             _isSingleton = false;
+            _instance.init();
         }
         return _instance;
     }
+
+
 
 
 
