@@ -34,9 +34,7 @@ public class ShoppingList {
             }
         }
         if(!found) {
-            var listItem:ShoppingListItem = new ShoppingListItem();
-            listItem.groupAlias = groupAlias;
-            listItem.requeiredAmounts = amount;
+            var listItem:ShoppingListItem = new ShoppingListItem(groupAlias, amount);
             Items.push(listItem);
         }
     }
