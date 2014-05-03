@@ -38,6 +38,7 @@ public class ProductCatalog {
                 prod.consumerRate = Number(_prod.ConsumerRate);
                 prod.expire = _prod.Expire;
                 prod.scene = _prod.Scene;
+
                 productsList.push(prod);
 
             }

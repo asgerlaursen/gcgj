@@ -80,18 +80,18 @@ public class Game extends EventDispatcher{
         {
             throw new Error("You should never call new on this class")
         }
-        currentState = STATE_INIT;
+
+        currentState = STATE_LIST;
 
         // Init Product Catalog
         products = new ProductCatalog();
 
-
         // Init first level
         currentShoppingList = new ShoppingList(currentLevel);
 
+
+
     }
-
-
 
 
 

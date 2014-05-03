@@ -3,13 +3,31 @@
  */
 package domain.shopping {
 public class ShoppingListItem {
-    public var GroupAlias:String;
-    public var ItemInBasket:Boolean = false;
-    public var RequeiredAmounts:int;
-
+    public var groupAlias:String;
+    public var itemInBasket:Boolean = false;
+    public var requeiredAmounts:int;
+    public var label:String;
 
     public function ShoppingListItem() {
+        createLabel();
+    }
 
+    private function createLabel():void {
+        if(groupAlias == "milk") {
+
+        }
+        else if(groupAlias == "milk") {
+
+        }
+        else if(groupAlias == "milk") {
+
+        }
+        else if(groupAlias == "milk") {
+
+        }
+        else if(groupAlias == "milk") {
+
+        }
     }
 }
 }
