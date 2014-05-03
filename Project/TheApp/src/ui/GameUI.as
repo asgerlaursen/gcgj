@@ -13,7 +13,10 @@ import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.utils.Dictionary;
 
+import ui.mediators.ChromeMediator;
+
 import ui.mediators.ShoppingListItemMediator;
+import ui.mediators.ShoppingListMediator;
 
 public class GameUI extends Sprite {
 
@@ -23,7 +26,7 @@ public class GameUI extends Sprite {
     private var _init:Sprite;
     private var _intro:Sprite;
     //Game
-    private var _chrome:Sprite;
+    private var _chrome:Chrome;
     private var _scene:Sprite;
 
     public function GameUI() {
@@ -49,7 +52,7 @@ public class GameUI extends Sprite {
     }
 
     private function gameSceneChangeHandler(event:GameEvent):void {
-        //TODO handle scene change
+        //TODO Peter handle scene change
     }
 
     private function updateUIFromGameState():void {
@@ -62,6 +65,7 @@ public class GameUI extends Sprite {
         //_init = new Sprite();
         //_intro = new Sprite();
         _chrome = new Chrome();
+        new ChromeMediator(_chrome);
         _scene = new Sprite();
         addChild(_scene);
         addChild(_chrome);
@@ -78,6 +82,7 @@ public class GameUI extends Sprite {
         var y:int = 0;
         var currentList:Array = _game.currentShoppingList.Items;
         var sl:ShoppingList = _chrome.getChildByName("_orderList") as ShoppingList;
+        new ShoppingListMediator(sl);
         for each(var i:ShoppingListItemImpl in currentList)
         {
             var si:ShoppingListItem = sl.addItem(i.groupAlias) as ShoppingListItem;

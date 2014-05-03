@@ -46,16 +46,16 @@ public class Game extends EventDispatcher{
     MEMBERS
      */
     public var currentShoppingList:ShoppingListImpl;
-    public var basket:Basket;
+    public var basket:Basket = new Basket();
     private var _currentState:String;
     public var currentScene:String;
     public var currentLevel:int = 1;
 
     //Domain Models
-    public var wallet:Wallet;
-    public var healt:Health;
-    public var environment:World
-    public var markedPlace:Marked;
+    public var wallet:Wallet = new Wallet();
+    public var health:Health = new Health();
+    public var environment:World = new World();
+    public var markedPlace:Marked = new Marked();
 
 
     // Products
@@ -64,7 +64,7 @@ public class Game extends EventDispatcher{
 
 
     //Point of sale system:
-    private var _pos:POS;
+    private var _pos:POS = new POS();
 
     public function get currentState():String {
         return _currentState;
@@ -125,7 +125,7 @@ public class Game extends EventDispatcher{
     public function checkOut():void
     {
         _pos.calculateWealth(wallet,basket);
-        _pos.calculateHealth(healt,basket);
+        _pos.calculateHealth(health,basket);
         _pos.calculateMarked(markedPlace,basket);
         _pos.calculateEnvironment(environment,basket);
         dispatchEvent(new GameEvent(GameEvent.EVENT_CHECKOUT_COMPLETE));

@@ -4,7 +4,7 @@
 package domain {
 public class Wallet {
 
-    public var balance:Number;
+    public var balance:Number = 100;
 
     public function Wallet() {
     }

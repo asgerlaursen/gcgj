@@ -13,7 +13,7 @@ public class Health {
     {
         //check whether it is possitive or not
         //calculate how "bad or good" it can be
-        var ajustmentAmount:Number;
+        var ajustmentAmount:Number =0;
         index += ajustmentAmount;
     }
 
