@@ -2,8 +2,6 @@
  * Created by asgerlaursen on 03/05/14.
  */
 package {
-import dk.webyte.util.TestUtil;
-
 import domain.basket.Basket;
 import events.GameEvent;
 import flash.events.EventDispatcher;
@@ -41,6 +39,7 @@ public class Game extends EventDispatcher{
     public var basket:Basket;
     private var _currentState:String;
     public var currentScene:String;
+    public var currentLevel:int = 1;
 
     //Domain Models
     public var wallet:Wallet;
@@ -51,6 +50,8 @@ public class Game extends EventDispatcher{
 
     // Products
     public var products:ProductCatalog;
+
+
 
     //Point of sale system:
     private var _pos:POS;
@@ -69,9 +70,17 @@ public class Game extends EventDispatcher{
         {
             throw new Error("You should never call new on this class")
         }
+        // Init Product Catalog
         products = new ProductCatalog();
 
+        // Init first level
+
+        currentShoppingList = new ShoppingList(currentLevel);
     }
+
+
+
+
 
     public static function getInstance():Game
     {

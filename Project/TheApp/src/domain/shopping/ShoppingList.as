@@ -6,11 +6,13 @@ public class ShoppingList {
 
     public var Items:Array = [];
 
-    public function ShoppingList() {
+    public function ShoppingList(level:int) {
+        if(level == 1) {
 
+        }
     }
 
-    public function addItem(groupAlias:String, amount:int):void {
+    private function addItem(groupAlias:String, amount:int):void {
         var found:Boolean = false;
         for(var i:int = 0; i < Items.length; i++) {
             if(Items[i].GroupAlias == groupAlias) {
