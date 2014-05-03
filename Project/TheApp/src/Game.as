@@ -14,6 +14,14 @@ import domain.shopping.ShoppingList;
 import domain.Wallet;
 import domain.World;
 
+[Event (name="initGame" , type="events.GameEvent")]
+[Event (name="startGame" , type="events.GameEvent")]
+[Event (name="enterShopping" , type="events.GameEvent")]
+[Event (name="enterList" , type="events.GameEvent")]
+[Event (name="checkoutBasket" , type="events.GameEvent")]
+[Event (name="checkoutComplete" , type="events.GameEvent")]
+[Event (name="gameStateChange" , type="events.GameEvent")]
+[Event (name="notSufficinetFunds" , type="events.GameEvent")]
 public class Game extends EventDispatcher{
 
     /*
