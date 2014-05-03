@@ -35,17 +35,11 @@ public class Game extends EventDispatcher{
     public static const STATE_CHEKCOUT:String = "stateCheckout";
 
     /*
-    EVENTS
-     */
-    public static const EVENT_NOT_SUFFICIENT_FUNDS:String = "notSufficientFunds";
-
-
-    /*
     MEMBERS
      */
     public var currentShoppingList:ShoppingList;
     public var basket:Basket;
-    public var currentState:String;
+    private var _currentState:String;
     public var currentScene:String;
 
     //Domain Models
@@ -61,7 +55,14 @@ public class Game extends EventDispatcher{
     //Point of sale system:
     private var _pos:POS;
 
+    public function get currentState():String {
+        return _currentState;
+    }
 
+    public function set currentState(value:String):void {
+        _currentState = value;
+        dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_STATE_CHANGE));
+    }
 
     public function Game(){
         if(_isSingleton == false)
@@ -116,9 +117,5 @@ public class Game extends EventDispatcher{
 
 
     }
-
-
-
-
 }
 }
