@@ -12,7 +12,7 @@ public class World {
     }
 
     public function calculateFootprint(basket:Basket):void {
-        degration ++;
+        degration;
     }
 }
 }

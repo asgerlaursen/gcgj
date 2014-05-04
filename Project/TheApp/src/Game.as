@@ -24,6 +24,8 @@ import domain.World;
 [Event (name="checkoutComplete" , type="events.GameEvent")]
 [Event (name="gameStateChange" , type="events.GameEvent")]
 [Event (name="notSufficinetFunds" , type="events.GameEvent")]
+[Event (name="itemAdded" , type="events.GameEvent")]
+[Event (name="basketCleared" , type="events.GameEvent")]
 public class Game extends EventDispatcher{
 
     /*
@@ -128,6 +130,7 @@ public class Game extends EventDispatcher{
         _pos.calculateHealth(health,basket);
         _pos.calculateMarked(markedPlace,basket);
         _pos.calculateEnvironment(environment,basket);
+
         dispatchEvent(new GameEvent(GameEvent.EVENT_CHECKOUT_COMPLETE));
 
         //Do we have funding=
