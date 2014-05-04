@@ -145,7 +145,8 @@ public class Game extends EventDispatcher{
     {
         currentLevel++;
         changeScene("diari-cooler");
-        dispatchEvent(new GameEvent(GameEvent.EVENT_NEW_LEVEL))
+        dispatchEvent(new GameEvent(GameEvent.EVENT_NEW_LEVEL));
+        currentState = STATE_LIST;
     }
 
     public function pay() {

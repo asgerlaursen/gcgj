@@ -52,7 +52,7 @@ public class EndGameMediator {
             }
         }
         _game.wallet.deposit(price);
-        _endScreen._moneyPrice.text = "You earned "+String(price);
+        _endScreen._moneyPrice.text = "New Balance "+String(_game.wallet.balance);
         _endScreen._done.text = String(done);
         _endScreen._orderAmount.text = String(list.length);
         _endScreen._msg.text = "Level Completed";

@@ -22,6 +22,7 @@ public class BasketMediator
     private var _basketPopUp:MovieClip;
     private var _basketCounter:MovieClip;
     private var _basketBtn:MovieClip;
+    private var _basketClose:MovieClip;
 
     public function BasketMediator(basket:MovieClip, basketCount:MovieClip, basketUI:MovieClip) {
         _basketBtn = basket;
@@ -31,6 +32,8 @@ public class BasketMediator
         _basketPopUp = basketUI;
         _basketPopUp.visible = false;
         _basketClearBtn = basketUI["_clearBtn"];
+        _basketClose = basketUI["_close"];
+        _basketClose.addEventListener(MouseEvent.CLICK, handleBasketClick)
         _basketClearBtn.addEventListener(MouseEvent.CLICK, handleClearBasket)
         
         _game = Game.getInstance();
@@ -115,6 +118,7 @@ public class BasketMediator
 
     private function handleBasketCleared(event:GameEvent):void {
         removeAll();
+        updateCounter();
     }
 
     private function removeAll():void
