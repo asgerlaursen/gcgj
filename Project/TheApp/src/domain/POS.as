@@ -16,7 +16,7 @@ public class POS {
     }
 
     public function calculateHealth(healt:Health, basket:Basket):void {
-        var totalHealth = basket.totalHealth;
+        var totalHealth = basket.totalHealth - 3.5;
         healt.ajust(totalHealth);
     }
 

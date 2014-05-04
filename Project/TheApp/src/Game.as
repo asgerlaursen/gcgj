@@ -43,6 +43,7 @@ public class Game extends EventDispatcher{
     public static const STATE_LIST:String = "stateList";
     public static const STATE_SHOPPING:String = "stateShopping";
     public static const STATE_CHEKCOUT:String = "stateCheckout";
+    public static const STATE_GAMEOVER:String = "stateGameOver";
 
     /*
     MEMBERS
@@ -120,7 +121,20 @@ public class Game extends EventDispatcher{
         return _instance;
     }
 
+    public function gameOver():void {
+        resetGame();
+        dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_OVER));
+        currentState = STATE_GAMEOVER;
+        changeScene("gameOver");
+    }
 
+    public function resetGame():void {
+        currentLevel = 1;
+        health.index = 1;
+        wallet.balance = 100;
+        environment.degration = 1;
+        changeScene("diari-cooler");
+    }
 
 
 

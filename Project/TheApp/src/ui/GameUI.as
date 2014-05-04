@@ -63,6 +63,11 @@ public class GameUI extends Sprite {
         else if(_game.currentScene == "checkout") {
             _chrome.visible = true;
         }
+        else if(_game.currentScene == "gameOver") {
+            _chrome.visible = false;
+            _scene.addEventListener(MouseEvent.CLICK, onGameOverClick);
+
+        }
         else {
             _scene.addEventListener(DataEvent.DATA, onProductClick);
             _chrome.visible = true;
@@ -88,6 +93,12 @@ public class GameUI extends Sprite {
             _chrome.visible = true;
         }
         */
+    }
+
+    private function onGameOverClick(event:MouseEvent):void {
+        _scene.removeEventListener(MouseEvent.CLICK, onGameOverClick);
+        _game.currentState = Game.STATE_LIST;
+        _game.resetGame();
     }
 
     private function clearScene() {
@@ -127,6 +138,9 @@ public class GameUI extends Sprite {
             //addChild(_chrome);
             dummyList();
         }
+        else if(state == Game.STATE_INTRO) {
+            //
+        }
     }
 
     private function setupUI():void {
@@ -152,7 +166,7 @@ public class GameUI extends Sprite {
         new ShoppingListMediator(sl);
         for each(var i:ShoppingListItemImpl in currentList)
         {
-            var si:ShoppingListItem = sl.addItem(i.groupAlias) as ShoppingListItem;
+            var si:ShoppingListItem = sl.addItem(i.label) as ShoppingListItem;
             new ShoppingListItemMediator(si,i);
         }
     }

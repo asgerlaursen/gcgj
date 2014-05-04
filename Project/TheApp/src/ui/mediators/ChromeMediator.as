@@ -13,8 +13,13 @@ public class ChromeMediator {
         _chrome = chrome;
         _game = Game.getInstance();
         _game.addEventListener(GameEvent.EVENT_CHECKOUT_COMPLETE, handleCheckoutComplete);
+        _game.addEventListener(GameEvent.EVENT_GAME_OVER, handleGameOverHandler);
         updateChrome();
 
+    }
+
+    private function handleGameOverHandler(event:GameEvent):void {
+       updateChrome();
     }
 
     private function handleCheckoutComplete(event:GameEvent):void {
@@ -27,5 +32,6 @@ public class ChromeMediator {
         _chrome._health["_bar"].scaleX = _game.health.index;
         _chrome._money.text = String(_game.wallet.balance) + " DKR";
     }
+
 }
 }
