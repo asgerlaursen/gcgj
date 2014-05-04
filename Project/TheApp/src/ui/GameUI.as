@@ -65,6 +65,7 @@ public class GameUI extends Sprite {
         }
         else if(_game.currentScene == "gameOver") {
             _chrome.visible = false;
+            trace(_scene.gameOver); //.text = _game.gameOverMessage;
             _scene.addEventListener(MouseEvent.CLICK, onGameOverClick);
 
         }

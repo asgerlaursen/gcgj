@@ -2,19 +2,18 @@
  * Created by asgerlaursen on 03/05/14.
  */
 package {
-import dk.webyte.util.TestUtil;
-
-import domain.basket.Basket;
-import events.GameEvent;
-import flash.events.EventDispatcher;
-import domain.products.ProductCatalog;
-import flash.geom.Point;
 import domain.Health;
 import domain.Marked;
 import domain.POS;
-import domain.shopping.ShoppingListImpl;
 import domain.Wallet;
 import domain.World;
+import domain.basket.Basket;
+import domain.products.ProductCatalog;
+import domain.shopping.ShoppingListImpl;
+
+import events.GameEvent;
+
+import flash.events.EventDispatcher;
 
 [Event (name="initGame" , type="events.GameEvent")]
 [Event (name="startGame" , type="events.GameEvent")]
@@ -53,6 +52,10 @@ public class Game extends EventDispatcher{
     private var _currentState:String;
     public var currentScene:String;
     public var currentLevel:int = 1;
+
+    public var gameOverMessage:String = "";
+
+
 
     //Domain Models
     public var wallet:Wallet = new Wallet();
@@ -121,8 +124,9 @@ public class Game extends EventDispatcher{
         return _instance;
     }
 
-    public function gameOver():void {
-        //resetGame();
+    public function gameOver(s:String = ""):void {
+        resetGame();
+        gameOverMessage = "Game Over!\n"+s;
         dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_OVER));
         currentState = STATE_GAMEOVER;
         changeScene("gameOver");

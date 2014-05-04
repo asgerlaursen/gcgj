@@ -21,7 +21,7 @@ public class Health {
         index += ajustmentAmount;
 
         if(index <= 0) {
-            Game.getInstance().gameOver();
+            Game.getInstance().gameOver("You died from bad healt");
         }
 
     }
