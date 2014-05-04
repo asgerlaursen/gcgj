@@ -121,7 +121,7 @@ public class BasketMediator
     {
         for each(var i:MovieClip in _uiList)
         {
-            _basketPopUp.removeChild(i);
+            _basketPopUp["_items"].removeChild(i);
         }
         _uiList = [];
     }
