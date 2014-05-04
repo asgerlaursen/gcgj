@@ -39,6 +39,16 @@ public class ShoppingListImpl {
         }
     }
 
+    public function getItemsForGroup(_group:String):Array {
+        var returnArr:Array = [];
+        for(var i:int = 0; i < Items.length; i++) {
+            if(Items[i].groupAlias == _group) {
+                returnArr.push(Items[i]);
+            }
+        }
+        return returnArr;
+    }
+
     public function clearList():void {
         Items = [];
     }

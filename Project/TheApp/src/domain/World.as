@@ -19,7 +19,6 @@ public class World {
         var addToWorld = basket.totalEnvironmental + basket.totalFairness + healTheWorldEveryday;
         degrationPercent += addToWorld;
         degration = Math.round(MathUtils.ratioValue(degrationPercent, 0, 100, steps, 1));
-        trace("degration: " + degration)
     }
 }
 }

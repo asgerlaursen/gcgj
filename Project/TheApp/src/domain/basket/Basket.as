@@ -36,6 +36,16 @@ public class Basket {
         Game.getInstance().dispatchEvent(new GameEvent(GameEvent.EVENT_ITEM_ADDED));
     }
 
+    public function getItemsForGroup(_group:String):Array {
+        var returnArr:Array = [];
+        for(var i:int = 0; i < _basketList.length; i++) {
+            if(_basketList[i].groupAlias == _group) {
+                returnArr.push(_basketList[i]);
+            }
+        }
+        return returnArr;
+    }
+
     public function getBasketList():Array
     {
         return _basketList;
