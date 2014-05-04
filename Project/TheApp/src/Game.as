@@ -141,6 +141,13 @@ public class Game extends EventDispatcher{
         changeScene("diari-cooler");
     }
 
+    public function nextLevel():void
+    {
+        currentLevel++;
+        changeScene("diari-cooler");
+        dispatchEvent(new GameEvent(GameEvent.EVENT_NEW_LEVEL))
+    }
+
     public function pay() {
         if(_pos.hasSufficientFunds(wallet,basket))
         {

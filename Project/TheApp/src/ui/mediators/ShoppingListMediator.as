@@ -14,11 +14,17 @@ public class ShoppingListMediator {
 
     public function ShoppingListMediator(sl:ShoppingList) {
         _game = Game.getInstance();
-        _game.addEventListener(GameEvent.EVENT_GAME_STATE_CHANGE, handleGameStateChange)
+        _game.addEventListener(GameEvent.EVENT_GAME_STATE_CHANGE, handleGameStateChange);
+        _game.addEventListener(GameEvent.EVENT_NEW_LEVEL, handleNewLevel);
         _list = sl;
         _list._checkOutBtn.addEventListener(MouseEvent.CLICK, handleCheckout)
         _list._pullOut.addEventListener(MouseEvent.CLICK, toggleList);
         _list.y = Math.round(_list.y);
+    }
+
+    private function handleNewLevel(event:GameEvent):void {
+        _toggled = false;
+        respondeToToggle();
     }
 
     private function handleGameStateChange(event:GameEvent):void {
