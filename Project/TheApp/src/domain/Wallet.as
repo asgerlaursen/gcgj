@@ -15,7 +15,7 @@ public class Wallet {
     }
 
     public function deposit(price:Number):void {
-        balance += price;
+        balance += Math.round(price);
     }
 }
 }
