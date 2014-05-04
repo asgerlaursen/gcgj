@@ -27,6 +27,7 @@ public class ShoppingListItemImpl {
 
     private function createLabel():void {
         var prod:BasketItem =  Game.getInstance().products.getProductsForGroup(groupAlias)[0];
+        trace(prod);
         if(prod != null) {
             if (groupAlias == "milk") {
                 label = requeiredAmounts.toString() + " " + prod.quantifier + " milk";
@@ -49,6 +50,7 @@ public class ShoppingListItemImpl {
             else if (groupAlias == "lettuce") {
                 label = requeiredAmounts.toString() + " " + prod.quantifier + " lettuce";
             }
+            trace(label);
         }
         else {
             trace("prod = null");

@@ -39,7 +39,7 @@ public class Basket {
     public function getItemsForGroup(_group:String):Array {
         var returnArr:Array = [];
         for(var i:int = 0; i < _basketList.length; i++) {
-            if(_basketList[i].groupAlias == _group) {
+            if(_basketList[i].group == _group) {
                 returnArr.push(_basketList[i]);
             }
         }
