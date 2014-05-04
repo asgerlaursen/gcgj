@@ -166,6 +166,8 @@ public class GameUI extends Sprite {
         var sl:ShoppingList = _chrome.getChildByName("_orderList") as ShoppingList;
         _game.currentShoppingList.shopListItem = sl;
         new ShoppingListMediator(sl);
+        sl.clearList();
+
         for each(var i:ShoppingListItemImpl in currentList)
         {
             var si:ShoppingListItem = sl.addItem(i.label) as ShoppingListItem;
@@ -173,6 +175,10 @@ public class GameUI extends Sprite {
             i.listItemModel = si;
             new ShoppingListItemMediator(si,i);
         }
+
+
+
+
     }
 
 

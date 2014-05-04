@@ -138,7 +138,6 @@ public class Game extends EventDispatcher{
         health.index = 1;
         wallet.balance = 100;
         environment.degration = 1;
-        currentShoppingList.shopListItem.clearList();
         changeScene("diari-cooler");
     }
 
