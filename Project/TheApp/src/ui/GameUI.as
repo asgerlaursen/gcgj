@@ -72,7 +72,8 @@ public class GameUI extends Sprite {
         else if(_game.currentScene == "gameOver") {
             _chrome.visible = false;
             trace(_scene.gameOver); //.text = _game.gameOverMessage;
-            _scene.addEventListener(MouseEvent.CLICK, onGameOverClick);
+            _scene.gameOver._msg.text = _game.gameOverMessage;
+            _scene.gameOver.addEventListener(MouseEvent.CLICK, onGameOverClick);
 
         }
         else {
@@ -103,9 +104,9 @@ public class GameUI extends Sprite {
     }
 
     private function onGameOverClick(event:MouseEvent):void {
-        _scene.removeEventListener(MouseEvent.CLICK, onGameOverClick);
-        _game.currentState = Game.STATE_LIST;
+        _scene.gameOver.removeEventListener(MouseEvent.CLICK, onGameOverClick);
         _game.resetGame();
+        _game.currentState = Game.STATE_LIST;
     }
 
     private function clearScene() {

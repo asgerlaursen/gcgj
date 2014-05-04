@@ -29,7 +29,7 @@ public class POS {
     }
 
     public function hasSufficientFunds(wallet:Wallet, basket:Basket):Boolean {
-        return wallet.balance > basket.totalPrice;
+        return wallet.balance >= basket.totalPrice;
     }
 }
 }

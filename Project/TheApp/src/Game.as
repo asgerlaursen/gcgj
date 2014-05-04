@@ -127,9 +127,8 @@ public class Game extends EventDispatcher{
 
     public function gameOver(s:String = ""):void {
         gameOverMessage = "Game Over!\n"+s;
-        resetGame();
-        dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_OVER));
-        currentState = STATE_GAMEOVER;
+       // dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_OVER));
+        //currentState = STATE_GAMEOVER;
         changeScene("gameOver");
     }
 
@@ -138,6 +137,9 @@ public class Game extends EventDispatcher{
         health.index = 1;
         wallet.balance = 100;
         environment.degration = 1;
+        basket.clearBasket();
+        dispatchEvent(new GameEvent(GameEvent.EVENT_UPDATE_CHROME));
+        dispatchEvent(new GameEvent(GameEvent.EVENT_NEW_LEVEL));
         changeScene("diari-cooler");
     }
 
@@ -161,7 +163,8 @@ public class Game extends EventDispatcher{
         }
         else
         {
-            dispatchEvent(new GameEvent(GameEvent.EVENT_NOT_SUFFICIENT_FUNDS));
+            //dispatchEvent(new GameEvent(GameEvent.EVENT_NOT_SUFFICIENT_FUNDS));
+            gameOver("Not Sufficient Funds");
         }
     }
 
