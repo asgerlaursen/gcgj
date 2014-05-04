@@ -104,6 +104,7 @@ public class GameUI extends Sprite {
         var prodId:String = event.data;
         var prod:BasketItem = _game.products.getProduct(prodId);
         if(prod != null) {
+
             _game.basket.addItem(prod);
 
         }
@@ -141,7 +142,6 @@ public class GameUI extends Sprite {
         addChild(_scene);
         addChild(_chrome);
         addChild(_popUp);
-        dummyList();
 
     }
 
