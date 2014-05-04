@@ -75,7 +75,7 @@ public class BasketMediator
         _uiList = [];
         var x:int = 5;
         var y:int = 5;
-        var m:int = 5;
+        var m:int = 2;
         var my:int = 20;
         var mx:int = _basketPopUp.width;
 
@@ -88,7 +88,7 @@ public class BasketMediator
             if((x + item.x + m ) > mx)
             {
                 x = 0;
-                y += 20;
+                y += my;
             }
             item.x = x;
             item.y = y;
