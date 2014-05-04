@@ -72,13 +72,13 @@ public class GameUI extends Sprite {
             _scene.addEventListener(DataEvent.DATA, onProductClick);
             _chrome.visible = true;
             var productsForScene:Array = _game.products.getProductsForScene(_game.currentScene);
-            for(var i:int = 0; i < productsForScene.length; i++) {
+            /*for(var i:int = 0; i < productsForScene.length; i++) {
                 var priceText:TextField = _scene["scene_" + _game.currentScene.replace("-", "_")]["pricetag_"+ productsForScene[i].id].priceText as TextField;
                 if(priceText != null) {
                     priceText.text = productsForScene[i].price + " KR";
                 }
 
-            }
+            }*/
         }
         /*
         else if(_game.currentScene == "diari-cooler") {

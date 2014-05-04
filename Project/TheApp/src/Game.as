@@ -122,7 +122,7 @@ public class Game extends EventDispatcher{
     }
 
     public function gameOver():void {
-        resetGame();
+        //resetGame();
         dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_OVER));
         currentState = STATE_GAMEOVER;
         changeScene("gameOver");
