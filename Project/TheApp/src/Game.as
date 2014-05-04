@@ -134,12 +134,19 @@ public class Game extends EventDispatcher{
      */
     public function checkOut():void
     {
-        _pos.calculateWealth(wallet,basket);
-        _pos.calculateHealth(health,basket);
-        _pos.calculateMarked(markedPlace,basket);
-        _pos.calculateEnvironment(environment,basket);
+        if(_pos.hasSufficientFunds(wallet,basket))
+        {
+            _pos.calculateWealth(wallet,basket);
+            _pos.calculateHealth(health,basket);
+            _pos.calculateMarked(markedPlace,basket);
+            _pos.calculateEnvironment(environment,basket);
 
-        dispatchEvent(new GameEvent(GameEvent.EVENT_CHECKOUT_COMPLETE));
+            dispatchEvent(new GameEvent(GameEvent.EVENT_CHECKOUT_COMPLETE));
+        }
+        else
+        {
+            dispatchEvent(new GameEvent(GameEvent.EVENT_NOT_SUFFICIENT_FUNDS));
+        }
 
         //Do we have funding=
         //if not - stop here and tell the world

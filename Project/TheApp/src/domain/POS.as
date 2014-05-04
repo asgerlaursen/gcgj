@@ -27,5 +27,9 @@ public class POS {
     public function calculateEnvironment(environment:World, basket:Basket):void {
             environment.calculateFootprint(basket);
     }
+
+    public function hasSufficientFunds(wallet:Wallet, basket:Basket):Boolean {
+        return wallet.balance > basket.totalPrice;
+    }
 }
 }

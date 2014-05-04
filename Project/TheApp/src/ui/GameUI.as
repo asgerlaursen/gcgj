@@ -15,6 +15,7 @@ import flash.text.TextField;
 import flash.utils.Dictionary;
 
 import ui.mediators.ChromeMediator;
+import ui.mediators.PopUpMediator;
 
 import ui.mediators.ShoppingListItemMediator;
 import ui.mediators.ShoppingListMediator;
@@ -29,6 +30,7 @@ public class GameUI extends Sprite {
     //Game
     private var _chrome:Chrome;
     private var _scene:Scenes;
+    private var _popUp:Popup;
 
     public function GameUI() {
         super();
@@ -133,8 +135,13 @@ public class GameUI extends Sprite {
         new ChromeMediator(_chrome);
         _chrome.visible = false;
         _scene = new Scenes();
+        _popUp = new Popup();
+        new PopUpMediator(_popUp);
+
         addChild(_scene);
         addChild(_chrome);
+        addChild(_popUp);
+        dummyList();
 
     }
 
