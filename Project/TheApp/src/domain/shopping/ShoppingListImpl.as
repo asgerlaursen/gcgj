@@ -25,28 +25,78 @@ public class ShoppingListImpl {
             addItem(groupAliasArr[1], 10);
         }
         else if(level == 2) {
-            addItem(groupAliasArr[0], 2);
-            addItem(groupAliasArr[3], 400);
-            addItem(groupAliasArr[5], 3);
+            addItem(groupAliasArr[2], 400);
+            addItem(groupAliasArr[4], 300);
+            addItem(groupAliasArr[6], 2);
             addItem(groupAliasArr[1], 10);
         }
         else if(level == 3) {
             addItem(groupAliasArr[0], 2);
-            addItem(groupAliasArr[3], 400);
-            addItem(groupAliasArr[5], 3);
-            addItem(groupAliasArr[1], 10);
+            addItem(groupAliasArr[3], 150);
+            addItem(groupAliasArr[2], 200);
+            addItem(groupAliasArr[6], 1);
+            addItem(groupAliasArr[5], 4);
+            addItem(groupAliasArr[4], 120);
         }
-        else if(level == 4) {
+        else if(level == 6) {
             addItem(groupAliasArr[0], 2);
             addItem(groupAliasArr[3], 400);
             addItem(groupAliasArr[5], 3);
             addItem(groupAliasArr[1], 10);
         }
-        else if(level == 5) {
+        else if(level == 7) {
+            addItem(groupAliasArr[2], 400);
+            addItem(groupAliasArr[4], 300);
+            addItem(groupAliasArr[6], 2);
+            addItem(groupAliasArr[1], 10);
+        }
+        else if(level == 8) {
+            addItem(groupAliasArr[0], 2);
+            addItem(groupAliasArr[3], 150);
+            addItem(groupAliasArr[2], 200);
+            addItem(groupAliasArr[6], 1);
+            addItem(groupAliasArr[5], 4);
+            addItem(groupAliasArr[4], 120);
+        }
+        else if(level == 9) {
             addItem(groupAliasArr[0], 2);
             addItem(groupAliasArr[3], 400);
             addItem(groupAliasArr[5], 3);
             addItem(groupAliasArr[1], 10);
+        }
+        else if(level == 10) {
+            addItem(groupAliasArr[2], 400);
+            addItem(groupAliasArr[4], 300);
+            addItem(groupAliasArr[6], 2);
+            addItem(groupAliasArr[1], 10);
+        }
+        else if(level == 11) {
+            addItem(groupAliasArr[0], 2);
+            addItem(groupAliasArr[3], 150);
+            addItem(groupAliasArr[2], 200);
+            addItem(groupAliasArr[6], 1);
+            addItem(groupAliasArr[5], 4);
+            addItem(groupAliasArr[4], 120);
+        }
+        else if(level == 12) {
+            addItem(groupAliasArr[0], 2);
+            addItem(groupAliasArr[3], 400);
+            addItem(groupAliasArr[5], 3);
+            addItem(groupAliasArr[1], 10);
+        }
+        else if(level == 13) {
+            addItem(groupAliasArr[2], 400);
+            addItem(groupAliasArr[4], 300);
+            addItem(groupAliasArr[6], 2);
+            addItem(groupAliasArr[1], 10);
+        }
+        else if(level == 14) {
+            addItem(groupAliasArr[0], 2);
+            addItem(groupAliasArr[3], 150);
+            addItem(groupAliasArr[2], 200);
+            addItem(groupAliasArr[6], 1);
+            addItem(groupAliasArr[5], 4);
+            addItem(groupAliasArr[4], 120);
         }
     }
 
