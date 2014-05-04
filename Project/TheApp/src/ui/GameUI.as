@@ -42,7 +42,12 @@ public class GameUI extends Sprite {
         addEventListener(Event.ADDED_TO_STAGE, handleAddedToStage)
         _game = Game.getInstance();
         _game.addEventListener(GameEvent.EVENT_GAME_STATE_CHANGE, gameStateChangeHandler);
-        _game.addEventListener(GameEvent.EVENT_GAME_SCENE_CHANGE,gameSceneChangeHandler)
+        _game.addEventListener(GameEvent.EVENT_GAME_SCENE_CHANGE,gameSceneChangeHandler);
+        _game.addEventListener(GameEvent.EVENT_NEW_LEVEL, gameLevelChangeHandler);
+    }
+
+    private function gameLevelChangeHandler(event:GameEvent):void {
+        _chrome._lvl.text = _game.currentLevel.toString();
     }
 
 
@@ -155,6 +160,7 @@ public class GameUI extends Sprite {
         _chrome = new Chrome();
         new ChromeMediator(_chrome);
         _chrome.visible = false;
+        _chrome._lvl.text = "1";
         _scene = new Scenes();
         _popUp = new Popup();
         var endGame:EndScreen = new EndScreen();
