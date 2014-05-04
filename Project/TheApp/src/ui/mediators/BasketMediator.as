@@ -7,20 +7,30 @@ import domain.basket.BasketItem;
 import events.GameEvent;
 
 import flash.display.MovieClip;
-
 import flash.display.Sprite;
+import flash.events.MouseEvent;
 
 public class BasketMediator
 {
-    private var _basketUI:Sprite;
     private var _game:Game;
     private var _scaleFactor:Number;
 
     private var _uiList:Array = [];
 
     private var _basketUIList:Array;
+    private var _basketClearBtn:MovieClip;
+    private var _basketPopUp:MovieClip;
+    private var _basketCounter:MovieClip;
+    private var _basketBtn:MovieClip;
 
-    public function BasketMediator() {
+    public function BasketMediator(basket:MovieClip, basketCount:MovieClip, basketUI:MovieClip) {
+        _basketBtn = basket;
+        _basketBtn.addEventListener(MouseEvent.CLICK, handleBasketClick)
+        _basketCounter = basketCount;
+        _basketPopUp = basketUI;
+        _basketPopUp.visible = false;
+        _basketClearBtn = basketUI["_clearBtn"];
+        
         _game = Game.getInstance();
         _game.addEventListener(GameEvent.EVENT_BASKET_CLEARED, handleBasketCleared);
         _game.addEventListener(GameEvent.EVENT_ITEM_ADDED, handleItemAdded);
@@ -51,6 +61,10 @@ public class BasketMediator
 
     }
 
+    private function handleBasketClick(event:MouseEvent):void {
+        _basketPopUp.visible = !_basketPopUp.visible;
+    }
+
     private function handleItemAdded(event:GameEvent):void {
         removeAll();
         buildBasket();
@@ -58,16 +72,19 @@ public class BasketMediator
 
     private function buildBasket():void {
         var basketList:Array = _game.basket.getBasketList();
+        _uiList = [];
         var x:int = 5;
         var y:int = 5;
         var m:int = 5;
         var my:int = 20;
-        var mx:int = 300;
+        var mx:int = _basketPopUp.width;
 
         for each(var i:BasketItem in basketList)
         {
-            var C:Class = _basketUIList[i.id+1] as Class;
+            var id:int = Number(i.id)-1;
+            var C:Class = _basketUIList[id] as Class;
             var item:MovieClip = new C();
+            item.scaleX = item.scaleY = 0.2;
             if((x + item.x + m ) > mx)
             {
                 x = 0;
@@ -76,7 +93,9 @@ public class BasketMediator
             item.x = x;
             item.y = y;
 
-            x += item.x +m;
+            x += item.width +m;
+            _basketPopUp.addChild(item);
+            _uiList.push(item);
         }
 
     }
@@ -89,7 +108,7 @@ public class BasketMediator
     {
         for each(var i:MovieClip in _uiList)
         {
-            _basketUI.removeChild(i);
+            _basketPopUp.removeChild(i);
         }
     }
 }

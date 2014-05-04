@@ -11,6 +11,7 @@ public class ChromeMediator {
 
     public function ChromeMediator(chrome:Chrome) {
         _chrome = chrome;
+        new BasketMediator(_chrome._basket,_chrome._basketCount,_chrome._basketUI)
         _game = Game.getInstance();
         _game.addEventListener(GameEvent.EVENT_CHECKOUT_COMPLETE, handleCheckoutComplete);
         _game.addEventListener(GameEvent.EVENT_GAME_OVER, handleGameOverHandler);
