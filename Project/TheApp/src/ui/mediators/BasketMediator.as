@@ -27,9 +27,11 @@ public class BasketMediator
         _basketBtn = basket;
         _basketBtn.addEventListener(MouseEvent.CLICK, handleBasketClick)
         _basketCounter = basketCount;
+        updateCounter();
         _basketPopUp = basketUI;
         _basketPopUp.visible = false;
         _basketClearBtn = basketUI["_clearBtn"];
+        _basketClearBtn.addEventListener(MouseEvent.CLICK, handleClearBasket)
         
         _game = Game.getInstance();
         _game.addEventListener(GameEvent.EVENT_BASKET_CLEARED, handleBasketCleared);
@@ -61,6 +63,10 @@ public class BasketMediator
 
     }
 
+    private function handleClearBasket(event:MouseEvent):void {
+        removeAll();
+    }
+
     private function handleBasketClick(event:MouseEvent):void {
         _basketPopUp.visible = !_basketPopUp.visible;
     }
@@ -76,7 +82,7 @@ public class BasketMediator
         var x:int = 5;
         var y:int = 5;
         var m:int = 2;
-        var my:int = 20;
+        var my:int = 80;
         var mx:int = _basketPopUp.width;
 
         for each(var i:BasketItem in basketList)
@@ -84,7 +90,7 @@ public class BasketMediator
             var id:int = Number(i.id)-1;
             var C:Class = _basketUIList[id] as Class;
             var item:MovieClip = new C();
-            item.scaleX = item.scaleY = 0.2;
+            item.scaleX = item.scaleY = 0.3;
             if((x + item.x + m ) > mx)
             {
                 x = 0;
@@ -97,7 +103,12 @@ public class BasketMediator
             _basketPopUp.addChild(item);
             _uiList.push(item);
         }
+        updateCounter();
+    }
 
+    private function updateCounter():void
+    {
+        _basketCounter["_label"].text = String(_uiList.length);
     }
 
     private function handleBasketCleared(event:GameEvent):void {
@@ -110,6 +121,7 @@ public class BasketMediator
         {
             _basketPopUp.removeChild(i);
         }
+        _uiList = [];
     }
 }
 }
