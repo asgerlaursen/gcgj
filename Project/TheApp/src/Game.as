@@ -122,7 +122,7 @@ public class Game extends EventDispatcher{
     }
 
     public function gameOver():void {
-        //resetGame();
+        resetGame();
         dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_OVER));
         currentState = STATE_GAMEOVER;
         changeScene("gameOver");
@@ -136,18 +136,7 @@ public class Game extends EventDispatcher{
         changeScene("diari-cooler");
     }
 
-
-
-
-
-
-    /*
-    *
-    * GAME FLOW METHODS:
-    *____________________________________________________________________________
-     */
-    public function checkOut():void
-    {
+    public function pay() {
         if(_pos.hasSufficientFunds(wallet,basket))
         {
             _pos.calculateWealth(wallet,basket);
@@ -161,21 +150,25 @@ public class Game extends EventDispatcher{
         {
             dispatchEvent(new GameEvent(GameEvent.EVENT_NOT_SUFFICIENT_FUNDS));
         }
-
-        //Do we have funding=
-        //if not - stop here and tell the world
-        //if so - calculate:
-        //money
-        //reward:
-            //money
-            //health
-            //environment
-        //Marked:
-            // Stock
-            // Prices
-            // Availability
+    }
 
 
+
+
+    /*
+    *
+    * GAME FLOW METHODS:
+    *____________________________________________________________________________
+     */
+    public function checkOut():void
+    {
+        if(basket.getBasketList().length > 0) {
+            changeScene("checkOut");
+            currentState = STATE_CHEKCOUT;
+        }
+        else {
+            pay();
+        }
     }
 
     public function changeScene(sceneID:String):void {

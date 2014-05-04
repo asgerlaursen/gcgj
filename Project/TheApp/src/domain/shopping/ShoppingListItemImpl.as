@@ -12,6 +12,7 @@ public class ShoppingListItemImpl {
     public var requeiredAmounts:int;
     public var label:String;
     public var scene:String;
+    public var listItemModel:ShoppingListItem;
 
     public function ShoppingListItemImpl(_alias:String, _amount:int) {
         groupAlias = _alias;
