@@ -64,7 +64,9 @@ public class BasketMediator
     }
 
     private function handleClearBasket(event:MouseEvent):void {
+       _game.basket.clearBasket();
         removeAll();
+        updateCounter();
     }
 
     private function handleBasketClick(event:MouseEvent):void {
@@ -91,7 +93,7 @@ public class BasketMediator
             var C:Class = _basketUIList[id] as Class;
             var item:MovieClip = new C();
             item.scaleX = item.scaleY = 0.3;
-            if((x + item.x + m ) > mx)
+            if((x + item.width + m ) > mx)
             {
                 x = 0;
                 y += my;

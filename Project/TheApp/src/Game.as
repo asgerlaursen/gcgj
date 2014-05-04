@@ -124,14 +124,10 @@ public class Game extends EventDispatcher{
         return _instance;
     }
 
-<<<<<<< HEAD
+
     public function gameOver(s:String = ""):void {
-        resetGame();
         gameOverMessage = "Game Over!\n"+s;
-=======
-    public function gameOver():void {
         resetGame();
->>>>>>> FETCH_HEAD
         dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_OVER));
         currentState = STATE_GAMEOVER;
         changeScene("gameOver");
