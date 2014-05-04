@@ -14,6 +14,7 @@ public class ShoppingListImpl {
         "banana",    // 5
         "lettuce"    // 6
     ];
+    public var shopListItem:ShoppingList;
 
 
     public function ShoppingListImpl(level:int) {

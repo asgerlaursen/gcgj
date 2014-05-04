@@ -28,12 +28,17 @@ public class ShoppingListItemMediator {
         for(var i:int = 0; i < shoppingList.length; i++) {
             var shopListItem:ShoppingListItemImpl = shoppingList[i] as ShoppingListItemImpl;
             var basketList:Array = _game.basket.getItemsForGroup(shopListItem.groupAlias);
-            if(basketList.length >= shopListItem.requeiredAmounts) {
+            var totalAmount = 0;
+            for(var x:int = 0; x < basketList.length; x++) {
+                totalAmount += basketList[x].amount;
+            }
+            if(totalAmount >= shopListItem.requeiredAmounts) {
                 shopListItem.itemInBasket = true;
-                //shopListItem.listItemModel;
+                _game.currentShoppingList.shopListItem.turnItemOn(shopListItem.listItemModel);
             }
             else {
                 shopListItem.itemInBasket = false;
+                _game.currentShoppingList.shopListItem.turnItemOff(shopListItem.listItemModel);
             }
 
         }
