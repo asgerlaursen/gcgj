@@ -15,8 +15,13 @@ public class ChromeMediator {
         _game = Game.getInstance();
         _game.addEventListener(GameEvent.EVENT_CHECKOUT_COMPLETE, handleCheckoutComplete);
         _game.addEventListener(GameEvent.EVENT_GAME_OVER, handleGameOverHandler);
+        _game.addEventListener(GameEvent.EVENT_UPDATE_CHROME, handleUpdateChrome);
         updateChrome();
 
+    }
+
+    private function handleUpdateChrome(event:GameEvent):void {
+        updateChrome();
     }
 
     private function handleGameOverHandler(event:GameEvent):void {

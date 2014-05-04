@@ -13,5 +13,9 @@ public class Wallet {
             balance -= totalPrice;
 
     }
+
+    public function deposit(price:Number):void {
+        balance += price;
+    }
 }
 }
