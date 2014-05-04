@@ -102,7 +102,7 @@ public class BasketMediator
             item.y = y;
 
             x += item.width +m;
-            _basketPopUp.addChild(item);
+            _basketPopUp["_items"].addChild(item);
             _uiList.push(item);
         }
         updateCounter();
