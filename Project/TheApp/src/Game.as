@@ -140,7 +140,7 @@ public class Game extends EventDispatcher{
             _pos.calculateHealth(health,basket);
             _pos.calculateMarked(markedPlace,basket);
             _pos.calculateEnvironment(environment,basket);
-
+            basket.clearBasket();
             dispatchEvent(new GameEvent(GameEvent.EVENT_CHECKOUT_COMPLETE));
         }
         else
