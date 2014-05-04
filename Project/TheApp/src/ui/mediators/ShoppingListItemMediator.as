@@ -30,7 +30,7 @@ public class ShoppingListItemMediator {
             var basketList:Array = _game.basket.getItemsForGroup(shopListItem.groupAlias);
             if(basketList.length >= shopListItem.requeiredAmounts) {
                 shopListItem.itemInBasket = true;
-                trace(shopListItem.groupAlias + " done");
+                //shopListItem.listItemModel;
             }
             else {
                 shopListItem.itemInBasket = false;

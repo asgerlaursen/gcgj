@@ -168,6 +168,7 @@ public class GameUI extends Sprite {
         for each(var i:ShoppingListItemImpl in currentList)
         {
             var si:ShoppingListItem = sl.addItem(i.label) as ShoppingListItem;
+            i.listItemModel = si;
             new ShoppingListItemMediator(si,i);
         }
     }
