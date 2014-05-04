@@ -4,9 +4,11 @@
 
 package domain.products {
 
+import com.adobe.serialization;
 import flash.net.URLRequest;
 import flash.net.URLLoader;
 import flash.events.Event;
+import domain.basket.BasketItem;
 
 public class ProductCatalog {
 
@@ -20,11 +22,18 @@ public class ProductCatalog {
         var request:URLRequest = new URLRequest(jsonUrl);
         loader.addEventListener(Event.COMPLETE, onComplete);
         loader.load(request);
+    }
 
+    private function onComplete(e:Event):void {
+        var loader:URLLoader = URLLoader(e.target);
+        var jsonData:Array = JSON.parse(loader.data) as Array;
+        if(jsonData.length > 0) {
+            productArr = jsonData;
+        }
         for(var i:int = 0; i < productArr.length; i++) {
             var _prod:Object = productArr[i];
             if(_prod.Name != "") {
-                var prod:Product = new Product();
+                var prod:BasketItem = new BasketItem();
                 prod.id = _prod.ID;
                 prod.group = _prod.Group;
                 prod.name = _prod.Name;
@@ -40,15 +49,9 @@ public class ProductCatalog {
                 prod.scene = _prod.Scene;
 
                 productsList.push(prod);
-
             }
         }
-    }
-
-    private function onComplete(e:Event):void {
-        var loader:URLLoader = URLLoader(e.target);
-        //var jsonData:Array = JSON.decode(loader.data);
-        trace(loader.data);
+        Game.getInstance().currentState = Game.STATE_INTRO;
     }
 
     public function getProductsForScene(_scene:String):Array {
@@ -71,13 +74,13 @@ public class ProductCatalog {
         return returnArr;
     }
 
-    public function getProduct(_id:String):Product {
+    public function getProduct(_id:String):BasketItem {
         for(var i:int = 0; i < productsList.length; i++) {
             if(productsList[i].id == _id) {
                 return productsList[i];
             }
         }
-        return new Product();
+        return new BasketItem();
     }
 }
 }

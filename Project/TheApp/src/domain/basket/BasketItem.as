@@ -15,6 +15,8 @@ public class BasketItem {
     public var fairness:Number;
     public var quantifier:String;
     public var expire:Boolean;
+    public var consumerRate:Number;
+    public var scene:String;
 
     public function BasketItem() {
 

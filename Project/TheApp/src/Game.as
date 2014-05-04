@@ -75,6 +75,17 @@ public class Game extends EventDispatcher{
     public function set currentState(value:String):void {
         _currentState = value;
         dispatchEvent(new GameEvent(GameEvent.EVENT_GAME_STATE_CHANGE));
+        if (currentState == STATE_INIT) {
+            // Show loading
+        }
+        else if (currentState == STATE_INTRO) {
+            currentShoppingList = new ShoppingListImpl(currentLevel);
+            changeScene("intro");
+            // Show logo
+        }
+        else if (currentState == STATE_LIST) {
+
+        }
     }
 
     public function Game(){
@@ -88,13 +99,10 @@ public class Game extends EventDispatcher{
 
     private function init():void {
 
-        currentState = STATE_LIST;
-
+        currentState = STATE_INIT;
         // Init Product Catalog
         products = new ProductCatalog();
-
-        // Init first level
-        currentShoppingList = new ShoppingListImpl(currentLevel);
+        basket = new Basket();
 
 
     }

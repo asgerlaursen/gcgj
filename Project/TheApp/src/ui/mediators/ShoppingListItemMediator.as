@@ -14,12 +14,13 @@ public class ShoppingListItemMediator {
 
     public function ShoppingListItemMediator(item:ShoppingListItem,model:ShoppingListItemImpl) {
         _item = item;
+        _model = model;
         _item.addEventListener(MouseEvent.CLICK, handleItemClick);
         _game = Game.getInstance();
     }
 
     private function handleItemClick(event:MouseEvent):void {
-        _game.changeScene(_model.groupAlias);
+        _game.changeScene(_model.scene);
     }
 }
 }
