@@ -27,6 +27,7 @@ public class BasketMediator
         _basketBtn = basket;
         _basketBtn.addEventListener(MouseEvent.CLICK, handleBasketClick)
         _basketCounter = basketCount;
+        _basketCounter["_label"] = "0";
         _basketPopUp = basketUI;
         _basketPopUp.visible = false;
         _basketClearBtn = basketUI["_clearBtn"];
@@ -97,7 +98,7 @@ public class BasketMediator
             _basketPopUp.addChild(item);
             _uiList.push(item);
         }
-
+        _basketCounter["_lable"] = String(_uiList.length);
     }
 
     private function handleBasketCleared(event:GameEvent):void {
