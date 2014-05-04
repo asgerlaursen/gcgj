@@ -117,9 +117,7 @@ public class GameUI extends Sprite {
         var prodId:String = event.data;
         var prod:BasketItem = _game.products.getProduct(prodId);
         if(prod != null) {
-
             _game.basket.addItem(prod);
-
         }
         else {
             throw new Error("Couldn't find product");
@@ -140,9 +138,15 @@ public class GameUI extends Sprite {
             //addChild(_chrome);
             dummyList();
         }
-        else if(state == Game.STATE_INTRO) {
-            //
+        else if(state == Game.STATE_CHEKCOUT) {
+            _scene.checkOut._display.text = _game.basket.totalPrice + " Kr";
+            _scene.checkOut._callToAction.addEventListener(MouseEvent.CLICK, onCallToActionClick);
         }
+    }
+
+    private function onCallToActionClick(event:MouseEvent):void {
+        _game.pay();
+
     }
 
     private function setupUI():void {

@@ -24,6 +24,30 @@ public class ShoppingListImpl {
             addItem(groupAliasArr[5], 3);
             addItem(groupAliasArr[1], 10);
         }
+        else if(level == 2) {
+            addItem(groupAliasArr[0], 2);
+            addItem(groupAliasArr[3], 400);
+            addItem(groupAliasArr[5], 3);
+            addItem(groupAliasArr[1], 10);
+        }
+        else if(level == 3) {
+            addItem(groupAliasArr[0], 2);
+            addItem(groupAliasArr[3], 400);
+            addItem(groupAliasArr[5], 3);
+            addItem(groupAliasArr[1], 10);
+        }
+        else if(level == 4) {
+            addItem(groupAliasArr[0], 2);
+            addItem(groupAliasArr[3], 400);
+            addItem(groupAliasArr[5], 3);
+            addItem(groupAliasArr[1], 10);
+        }
+        else if(level == 5) {
+            addItem(groupAliasArr[0], 2);
+            addItem(groupAliasArr[3], 400);
+            addItem(groupAliasArr[5], 3);
+            addItem(groupAliasArr[1], 10);
+        }
     }
 
     private function addItem(groupAlias:String, amount:int):void {
