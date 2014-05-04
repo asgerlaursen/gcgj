@@ -67,7 +67,9 @@ public class GameUI extends Sprite {
             var productsForScene:Array = _game.products.getProductsForScene(_game.currentScene);
             for(var i:int = 0; i < productsForScene.length; i++) {
                 var priceText:TextField = _scene["scene_" + _game.currentScene.replace("-", "_")]["pricetag_"+ productsForScene[i].id].priceText as TextField;
-                priceText.text = productsForScene[i].price + " KR";
+                if(priceText != null) {
+                    priceText.text = productsForScene[i].price + " KR";
+                }
 
             }
         }
@@ -95,6 +97,7 @@ public class GameUI extends Sprite {
         _game.changeScene("diari-cooler");
         _scene.removeEventListener(MouseEvent.CLICK, onIntroClick);
     }
+
     private function onProductClick(event:DataEvent):void {
         var prodId:String = event.data;
         var prod:BasketItem = _game.products.getProduct(prodId);
